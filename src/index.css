@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 :root {
 	--color-fire: #ff7402;
@@ -33,7 +33,7 @@
 }
 
 body {
-	font-family: 'Montserrat';
+	font-family: "Nunito", sans-serif;
 }
 /* Globales */
 .container {
@@ -127,8 +127,29 @@ header form {
 /* Card List Pokemon */
 .card-list-pokemon {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 455px){
+  .card-list-pokemon{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 920px){
+  .card-list-pokemon{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1440px){
+  .card-list-pokemon{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .pokemon {
+    max-width: 450px;
+  }
 }
 
 .card-pokemon {
@@ -137,22 +158,22 @@ header form {
 }
 
 .card-img {
-	background-color: #f2f2f2;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 5px;
-	height: 250px;
+	padding-inline: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .card-img img {
-	width: 100%;
-	height: 100%;
+	max-width: 16rem;
 }
 
 .card-info {
-	padding: 15px;
+	display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding-inline: 1rem;
+  align-items: center;
+  text-align: center;
 }
 
 .card-info h3 {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { PokemonContext } from "./PokemonContext";
 import { useForm } from "../hook/useForm";
@@ -65,6 +66,7 @@ export const PokemonProvider = ({ children }) => {
 
   useEffect(() => {
     getAllPokemons();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   useEffect(() => {
