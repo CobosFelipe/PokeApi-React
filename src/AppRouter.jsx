@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
@@ -12,7 +13,7 @@ export const AppRouter = () => {
         <Route path="search" element={<SearchPage />} />
       </Route>
 
-      <Route path="*" element={<Navigate to='/' />}/>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
