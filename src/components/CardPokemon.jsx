@@ -2,32 +2,43 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link } from "react-router-dom";
+import { primerMayuscula } from "../helper/helper";
 
+const formatPokeId = (id) => {
+  let pokeId = id.toString();
+  if (pokeId.length === 1) {
+    pokeId = "00" + pokeId;
+  } else if (pokeId.length === 2) {
+    pokeId = "0" + pokeId;
+  }
+  return pokeId;
+};
 export const CardPokemon = ({ pokemon }) => {
   return (
     <Link to={`/pokemon/${pokemon.id}`} className="card-pokemon">
-      <div>
-      <p className="pokemon-id-back">{pokemon.Id}</p>
+      <div className="pokemon">
+        <p className="pokemon-id-back">{formatPokeId(pokemon.id)}</p>
         <div className="card-img">
           <img src={pokemon.sprites.other.home.front_default} alt={`Pokemon ${pokemon.name}`} />
         </div>
         <div className="card-info">
           <div className="nombre-contenedor">
-            <p className="pokemon-id">{pokemon.id}</p>
-            <h2 className="pokemon-nombre">{pokemon.name}</h2>
+            <p className="pokemon-id">{formatPokeId(pokemon.id)}</p>
+            <h2 className="pokemon-nombre">{primerMayuscula(pokemon.name)}</h2>
           </div>
-          <span className="pokemon-id">N° {pokemon.id}</span>
-          <h3>{pokemon.name}</h3>
-          <div className="card-types">
+          <div className="pokemon-tipos">
             {pokemon.types.map((type) => (
-              <span key={type.type.name} className={type.type.name}>
+              <p key={type.type.name} className={`${type.type.name} tipo`}>
                 {type.type.name}
-              </span>
+              </p>
             ))}
           </div>
+          <div className="pokemon-stats">
+            <p className="stats">${pokemon.height}M</p>
+            <p className="stats">${pokemon.weight}Kg</p>
+        </div>
         </div>
       </div>
-      
     </Link>
   );
 };

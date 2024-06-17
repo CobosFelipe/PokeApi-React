@@ -12,11 +12,13 @@ export const PokemonList = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="card-list-pokemon container">
-          {allPokemons.map((pokemon) => (
-            <CardPokemon pokemon={pokemon} key={pokemon.id} />
-          ))}
-        </div>
+        <main>
+          <div className="card-list-pokemon container">
+            {allPokemons.map((pokemon) => (
+              <CardPokemon pokemon={pokemon} key={pokemon.id} />
+            ))}
+          </div>
+        </main>
       )}
     </>
   );
